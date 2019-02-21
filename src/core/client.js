@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Base = require('./base');
 const Session = require('./session');
 
