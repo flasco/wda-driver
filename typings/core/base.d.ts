@@ -1,5 +1,3 @@
-/// <reference types="node" />
-
 /// <reference path="../utils/index.d.ts" />
 
 declare module '@flasco/wda-driver/src/core/base' {

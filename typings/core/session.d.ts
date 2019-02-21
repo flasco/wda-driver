@@ -1,5 +1,3 @@
-/// <reference types="node" />
-
 /// <reference path="./base.d.ts" />
 /// <reference path="../utils/index.d.ts" />
 
@@ -39,7 +37,7 @@ declare module '@flasco/wda-driver/src/core/session' {
   class Session extends Base {
     constructor(remoteUrl: string, capabilities: object);
 
-    get bundleId(): string;
+    bundleId: string;
 
     deactivate(duration: number): Promise<void>;
 

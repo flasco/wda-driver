@@ -1,5 +1,3 @@
-/// <reference types="node" />
-
 /// <reference path="./base.d.ts" />
 /// <reference path="./session.d.ts" />
 
@@ -17,7 +15,7 @@ declare module '@flasco/wda-driver/src/core/client' {
      * 根据参数创建新的session
      * @param payload 参数
      */
-    private createNewSession(payload): Session;
+    private createNewSession(payload: object): Session;
 
     /**
      * 根据 bundleId 强行启动应用
@@ -25,7 +23,7 @@ declare module '@flasco/wda-driver/src/core/client' {
      * @param args args
      * @param environment environment
      */
-    startApp(bundleId, args = [], environment = {}): Session;
+    startApp(bundleId: string, args: Array<any>, environment: object): Session;
 
     /**
      * 获取状态
@@ -46,7 +44,7 @@ declare module '@flasco/wda-driver/src/core/client' {
      * 截图
      * @param pngFilename 文件存放路径
      */
-    screenshot(pngFilename = ''): Promise<string | null>;
+    screenshot(pngFilename: string): Promise<string | null>;
   }
 
   export = Client;
