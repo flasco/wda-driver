@@ -68,13 +68,13 @@ class Session extends Base {
 
   async orientation(orientation) {
     const { value } = !orientation
-      ? await this.get('orientation')
-      : await this.post('orientation', { orientation });
+      ? await this.get('/orientation')
+      : await this.post('/orientation', { orientation });
     return value;
   }
 
   async getWindowSize() {
-    const { value } = await this.get('window/size');
+    const { value } = await this.get('/window/size');
     return value;
   }
 }
