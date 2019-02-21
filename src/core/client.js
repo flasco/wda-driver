@@ -47,7 +47,7 @@ class Client extends Base {
 
   async getActiveAppInfo() {
     const res = await this.get('/wda/activeAppInfo');
-    return res;
+    return res.value;
   }
 
   async isLocked() {
