@@ -5,6 +5,7 @@
 
 declare module '@flasco/wda-driver' {
   import Client = require('@flasco/wda-driver/src/core/client');
+  import Session = require('@flasco/wda-driver/src/core/session');
 
-  export { Client }
+  export { Client, Session }
 }
