@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { checkRoute } = require('../utils');
 
-axios.defaults.timeout = 15000;
+axios.defaults.timeout = 60000;
 
 class Base {
   // remoteURL - http://localhost:8100
