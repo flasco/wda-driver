@@ -29,7 +29,7 @@ class Session extends Base {
   }
 
   chainOperation(actions) {
-    return this.post('/wda/touch/perform', { actions });
+    return this.post('/wda/touch/perform', { actions }, { timeout: 60000 });
   }
 
   swipe(fromX, fromY, toX, toY, duration = 0) {

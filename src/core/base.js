@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { checkRoute } = require('../utils');
 
-axios.defaults.timeout = 60000;
+axios.defaults.timeout = 15000;
 
 class Base {
   // remoteURL - http://localhost:8100
@@ -30,11 +30,11 @@ class Base {
   }
 
   // route like this - /status
-  async post(route, payload) {
+  async post(route, payload, option = null) {
     checkRoute(route);
     const url = `${this.server}${route}`;
     try {
-      const { data } = await axios.post(url, payload);
+      const { data } = await axios.post(url, payload, option);
       return data;
     } catch (error) {
       throw error;
