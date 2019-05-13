@@ -36,6 +36,11 @@ declare module '@flasco/wda-driver/src/core/client' {
     getActiveAppInfo(): Promise<object>;
 
     /**
+     * 关闭手机
+     */
+    lock(): Promise<void>;
+
+    /**
      * 判断是否是锁屏状态
      */
     isLocked(): Promise<boolean>;

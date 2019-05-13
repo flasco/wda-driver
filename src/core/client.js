@@ -51,6 +51,11 @@ class Client extends Base {
     return res.value;
   }
 
+  async lock() {
+    const res = await this.post('/wda/lock');
+    return res.value;
+  }
+
   async isLocked() {
     const res = await this.get('/wda/locked');
     return res.value;
