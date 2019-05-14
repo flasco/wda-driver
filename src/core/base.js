@@ -15,6 +15,17 @@ class Base {
   }
 
   // route like this - /status
+  async get_buffer(route) {
+    let url = `${this.server}${route}`;
+    try {
+      const { data } = await axios.get(url, { responseType: 'arraybuffer' });
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // route like this - /status
   async get(route, withoutLink = false) {
     let url = route;
     if (!withoutLink) {

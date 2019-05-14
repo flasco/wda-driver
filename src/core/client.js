@@ -62,12 +62,12 @@ class Client extends Base {
   }
 
   async screenshot(pngFilename = '') {
-    const { value } = await this.get('/screenshot');
+    const result = await this.get_buffer('/screenshot');
     if (pngFilename !== '') {
-      fs.writeFileSync(pngFilename, value, 'base64');
+      fs.writeFileSync(pngFilename, result);
       return null;
     } else {
-      return value;
+      return result;
     }
   }
 }
