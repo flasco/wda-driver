@@ -49,7 +49,7 @@ declare module '@flasco/wda-driver/src/core/client' {
      * 截图
      * @param pngFilename 文件存放路径
      */
-    screenshot(pngFilename: string): Promise<string | null>;
+    screenshot(pngFilename: string): Promise<Buffer | null>;
   }
 
   export = Client;
