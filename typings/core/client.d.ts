@@ -9,13 +9,13 @@ declare module '@flasco/wda-driver/src/core/client' {
     /**
      * 获取当前session
      */
-    getSession(): Session;
+    getSession(): Promise<Session>;
 
     /**
      * 根据参数创建新的session
      * @param payload 参数
      */
-    private createNewSession(payload: object): Session;
+    private createNewSession(payload: object): Promise<Session>;
 
     /**
      * 根据 bundleId 强行启动应用
@@ -23,7 +23,7 @@ declare module '@flasco/wda-driver/src/core/client' {
      * @param args args
      * @param environment environment
      */
-    startApp(bundleId: string, args: Array<any>, environment: object): Session;
+    startApp(bundleId: string, args: Array<any>, environment: object): Promise<Session>;
 
     /**
      * 获取状态
