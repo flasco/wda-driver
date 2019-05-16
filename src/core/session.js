@@ -75,6 +75,7 @@ class Session extends Base {
 
   async getWindowSize() {
     const { value } = await this.get('/window/size');
+    if (typeof value === 'string') throw new Error(value);
     return value;
   }
 }
