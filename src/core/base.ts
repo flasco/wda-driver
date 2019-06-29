@@ -5,6 +5,7 @@ axios.defaults.timeout = 15000;
 
 class Base {
   server: string;
+
   constructor(remoteURL: string) {
     // remoteURL - http://localhost:8100
     checkRoute(remoteURL, false);
