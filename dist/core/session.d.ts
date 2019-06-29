@@ -5,6 +5,7 @@ interface ICapabilities {
     browserName: string;
     sdkVersion: string;
 }
+declare type TOrientation = 'LANDSCAPE' | 'PORTRAIT' | 'UIA_DEVICE_ORIENTATION_LANDSCAPERIGHT' | 'UIA_DEVICE_ORIENTATION_PORTRAIT_UPSIDEDOWN';
 declare class Session extends Base {
     capabilities: ICapabilities;
     constructor(remoteUrl: string, capabilities: ICapabilities);
@@ -20,7 +21,7 @@ declare class Session extends Base {
     swipeRight(): Promise<any>;
     swipeUp(): Promise<any>;
     swipeDown(): Promise<any>;
-    orientation(orientation: string): Promise<any>;
+    orientation(orientation: TOrientation): Promise<any>;
     getWindowSize(): Promise<any>;
 }
 export = Session;

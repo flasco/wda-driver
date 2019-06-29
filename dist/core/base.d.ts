@@ -1,5 +1,5 @@
 declare class Base {
-    server: string;
+    protected server: string;
     constructor(remoteURL: string);
     ping: () => Promise<any>;
     get_buffer: (route: string) => Promise<any>;

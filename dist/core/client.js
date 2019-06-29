@@ -7,9 +7,8 @@ class Client extends Base {
     async getSession() {
         const status = await this.status();
         const sid = status.sessionId;
-        if (sid == null) {
+        if (sid == null)
             throw 'no session created ever';
-        }
         const newUrl = `${this.server}/session/${sid}`;
         const { value: { capabilities } } = await this.get(newUrl, true);
         const ret = new Session(newUrl, capabilities);
