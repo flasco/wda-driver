@@ -1,6 +1,9 @@
 import Base = require('./base');
 interface ICapabilities {
     CFBundleIdentifier: string;
+    device: string;
+    browserName: string;
+    sdkVersion: string;
 }
 declare class Session extends Base {
     capabilities: ICapabilities;

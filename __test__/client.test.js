@@ -35,7 +35,7 @@ describe('client test', () => {
 
   test('getActiveAppInfo', async () => {
     const res = await c.getActiveAppInfo();
-    expect(res.value.bundleId).toBe(BUNDLE_ID);
+    expect(res.bundleId).toBe(BUNDLE_ID);
   }, 10000);
 
   test('isLocked', async () => {

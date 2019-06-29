@@ -3,6 +3,9 @@ import { checkRoute } from '../utils';
 
 interface ICapabilities {
   CFBundleIdentifier: string;
+  device: string,
+  browserName: string,
+  sdkVersion: string,
 }
 
 class Session extends Base {
