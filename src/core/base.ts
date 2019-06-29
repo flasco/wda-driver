@@ -4,7 +4,7 @@ import { checkRoute } from '../utils';
 axios.defaults.timeout = 15000;
 
 class Base {
-  server: string;
+  protected server: string;
 
   constructor(remoteURL: string) {
     // remoteURL - http://localhost:8100
