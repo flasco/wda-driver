@@ -1,6 +1,4 @@
 "use strict";
-const tslib_1 = require("tslib");
-const fs_1 = tslib_1.__importDefault(require("fs"));
 const Base = require("./base");
 const Session = require("./session");
 class Client extends Base {
@@ -51,15 +49,9 @@ class Client extends Base {
         const res = await this.get('/wda/locked');
         return res.value;
     }
-    async screenshot(pngFilename = '') {
+    async screenshot() {
         const result = await this.get_buffer('/screenshot/blob');
-        if (pngFilename !== '') {
-            fs_1.default.writeFileSync(pngFilename, result);
-            return null;
-        }
-        else {
-            return result;
-        }
+        return result;
     }
 }
 module.exports = Client;

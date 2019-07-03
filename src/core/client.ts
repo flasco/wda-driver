@@ -1,4 +1,3 @@
-import fs from 'fs';
 import Base = require('./base');
 import Session = require('./session');
 
@@ -86,17 +85,11 @@ class Client extends Base {
   }
 
   /**
-   * 截图
-   * @param pngFilename 文件存放路径
+   * 截图，返回 blob
    */
-  async screenshot(pngFilename: string = '') {
+  async screenshot() {
     const result = await this.get_buffer('/screenshot/blob');
-    if (pngFilename !== '') {
-      fs.writeFileSync(pngFilename, result);
-      return null;
-    } else {
-      return result;
-    }
+    return result;
   }
 }
 

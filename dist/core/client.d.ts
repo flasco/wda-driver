@@ -8,6 +8,6 @@ declare class Client extends Base {
     getActiveAppInfo(): Promise<any>;
     lock(): Promise<any>;
     isLocked(): Promise<any>;
-    screenshot(pngFilename?: string): Promise<any>;
+    screenshot(): Promise<any>;
 }
 export = Client;
