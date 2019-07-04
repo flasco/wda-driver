@@ -65,6 +65,15 @@ class Session extends Base {
             throw new Error(value);
         return value;
     }
+    async pressHome() {
+        return await this.post('/wda/pressButton', { name: 'home' });
+    }
+    async volumeUp() {
+        return await this.post('/wda/pressButton', { name: 'volumeUp' });
+    }
+    async volumeDown() {
+        return await this.post('/wda/pressButton', { name: 'volumeDown' });
+    }
 }
 module.exports = Session;
 //# sourceMappingURL=session.js.map

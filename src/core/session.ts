@@ -148,6 +148,27 @@ class Session extends Base {
     if (typeof value === 'string') throw new Error(value);
     return value;
   }
+
+  /**
+   * 按下 HOME 键
+   */
+  async pressHome() {
+    return await this.post('/wda/pressButton', { name: 'home' });
+  }
+
+  /**
+   * 调高音量，只有真机支持
+   */
+  async volumeUp() {
+    return await this.post('/wda/pressButton', { name: 'volumeUp' });
+  }
+
+  /**
+   * 调低音量，只有真机支持
+   */
+  async volumeDown() {
+    return await this.post('/wda/pressButton', { name: 'volumeDown' });
+  }
 }
 
 export = Session;
