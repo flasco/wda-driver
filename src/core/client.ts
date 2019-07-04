@@ -2,6 +2,12 @@ import fs from 'fs';
 import Base = require('./base');
 import Session = require('./session');
 
+interface IAppInfo {
+  pid: number;
+  name: string;
+  bundleId: string;
+}
+
 class Client extends Base {
   /**
    * 获取当前session
@@ -13,7 +19,7 @@ class Client extends Base {
 
     const newUrl = `${this.server}/session/${sid}`;
     const {
-      value: { capabilities }
+      value: { capabilities },
     } = await this.get(newUrl, true);
     const ret = new Session(newUrl, capabilities);
     return ret;
@@ -25,7 +31,7 @@ class Client extends Base {
    */
   async createNewSession(payload: Object) {
     const {
-      value: { capabilities, sessionId: sid }
+      value: { capabilities, sessionId: sid },
     } = await this.post('/session', payload);
 
     const newUrl = `${this.server}/session/${sid}`;
@@ -48,8 +54,8 @@ class Client extends Base {
         bundleId,
         arguments: args,
         environment,
-        shouldWaitForQuiescence: true
-      }
+        shouldWaitForQuiescence: true,
+      },
     };
     return await this.createNewSession(data);
   }
@@ -64,7 +70,7 @@ class Client extends Base {
   /**
    * 获取当前正在运行的应用的信息
    */
-  async getActiveAppInfo() {
+  async getActiveAppInfo(): Promise<IAppInfo> {
     const res = await this.get('/wda/activeAppInfo');
     return res.value;
   }
