@@ -23,5 +23,8 @@ declare class Session extends Base {
     swipeDown(): Promise<any>;
     orientation(orientation: TOrientation): Promise<any>;
     getWindowSize(): Promise<any>;
+    pressHome(): Promise<any>;
+    volumeUp(): Promise<any>;
+    volumeDown(): Promise<any>;
 }
 export = Session;
