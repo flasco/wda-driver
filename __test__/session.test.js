@@ -1,4 +1,4 @@
-const Client = require('../src/core/client');
+const Client = require('../dist/core/client');
 
 const BUNDLE_ID = 'com.linegames.dcglobal';
 const c = new Client('http://localhost:8100');

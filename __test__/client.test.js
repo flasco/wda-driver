@@ -1,4 +1,4 @@
-const Client = require('../src/core/client');
+const Client = require('../dist/core/client');
 
 const BUNDLE_ID = 'com.linegames.dcglobal';
 const c = new Client('http://localhost:8100');
@@ -35,7 +35,7 @@ describe('client test', () => {
 
   test('getActiveAppInfo', async () => {
     const res = await c.getActiveAppInfo();
-    expect(res.value.bundleId).toBe(BUNDLE_ID);
+    expect(res.bundleId).toBe(BUNDLE_ID);
   }, 10000);
 
   test('isLocked', async () => {
