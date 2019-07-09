@@ -8,6 +8,7 @@ class Base {
         this.ping = async () => {
             return this.get('/');
         };
+        // route like this - /status
         this.get_buffer = async (route) => {
             let url = `${this.server}${route}`;
             try {
@@ -18,6 +19,7 @@ class Base {
                 throw error;
             }
         };
+        // route like this - /status
         this.get = async (route, withoutLink = false) => {
             let url = route;
             if (!withoutLink) {
@@ -32,9 +34,11 @@ class Base {
                 throw error;
             }
         };
+        // remoteURL - http://localhost:8100
         utils_1.checkRoute(remoteURL, false);
         this.server = remoteURL;
     }
+    // route like this - /status
     async post(route, payload, option) {
         utils_1.checkRoute(route);
         const url = `${this.server}${route}`;

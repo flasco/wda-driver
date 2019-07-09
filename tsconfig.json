@@ -11,7 +11,7 @@
     "rootDir": "./src",                       // 用来控制输出目录结构 --outDir.
     "resolveJsonModule": true,
     "noEmitHelpers": true,
-    "removeComments": true,                // 删除编译后的所有的注释
+    "removeComments": false,                // 删除编译后的所有的注释
     "importHelpers": true,                 // 从 tslib 导入辅助工具函数
     /* 严格的类型检查选项 */
     "strict": true,                        // 启用所有严格类型检查选项

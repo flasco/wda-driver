@@ -6,7 +6,7 @@ export type IChainOperation =
   | IRelease
   | IWait;
 
-  export interface ITap {
+export interface ITap {
   action: 'tap';
   options: {
     x: number;
