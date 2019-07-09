@@ -1,5 +1,6 @@
 import Base = require('./base');
 import { checkRoute } from '../utils';
+import { IChainOperation } from '../interface/IChainItem';
 
 interface ICapabilities {
   CFBundleIdentifier: string;
@@ -62,7 +63,7 @@ class Session extends Base {
    * 组合操作链
    * @param actions array
    */
-  chainOperation(actions: Object[]) {
+  chainOperation(actions: IChainOperation[]) {
     return this.post('/wda/touch/perform', { actions }, { timeout: 60000 });
   }
 
