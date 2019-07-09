@@ -10,12 +10,12 @@ class Client extends Base {
         if (sid == null)
             throw 'no session created ever';
         const newUrl = `${this.server}/session/${sid}`;
-        const { value: { capabilities } } = await this.get(newUrl, true);
+        const { value: { capabilities }, } = await this.get(newUrl, true);
         const ret = new Session(newUrl, capabilities);
         return ret;
     }
     async createNewSession(payload) {
-        const { value: { capabilities, sessionId: sid } } = await this.post('/session', payload);
+        const { value: { capabilities, sessionId: sid }, } = await this.post('/session', payload);
         const newUrl = `${this.server}/session/${sid}`;
         return new Session(newUrl, capabilities);
     }
@@ -31,8 +31,8 @@ class Client extends Base {
                 bundleId,
                 arguments: args,
                 environment,
-                shouldWaitForQuiescence: true
-            }
+                shouldWaitForQuiescence: true,
+            },
         };
         return await this.createNewSession(data);
     }

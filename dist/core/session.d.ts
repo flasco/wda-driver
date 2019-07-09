@@ -1,4 +1,5 @@
 import Base = require('./base');
+import { IChainOperation } from '../interface/IChainItem';
 interface ICapabilities {
     CFBundleIdentifier: string;
     device: string;
@@ -14,7 +15,7 @@ declare class Session extends Base {
     tap(x: number, y: number): Promise<any>;
     doubleTap(x: number, y: number): Promise<any>;
     tapHold(x: number, y: number, duration: number): Promise<any>;
-    chainOperation(actions: Object[]): Promise<any>;
+    chainOperation(actions: IChainOperation[]): Promise<any>;
     swipe(fromX: number, fromY: number, toX: number, toY: number, duration?: number): Promise<any>;
     batteryInfo(): Promise<any>;
     swipeLeft(): Promise<any>;
