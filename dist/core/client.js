@@ -13,7 +13,7 @@ class Client extends Base {
         if (sid == null)
             throw 'no session created ever';
         const newUrl = `${this.server}/session/${sid}`;
-        const { value: { capabilities }, } = await this.get(newUrl, true);
+        const { value: { capabilities } } = await this.get(newUrl, true);
         const ret = new Session(newUrl, capabilities);
         return ret;
     }
@@ -22,7 +22,7 @@ class Client extends Base {
      * @param payload 参数
      */
     async createNewSession(payload) {
-        const { value: { capabilities, sessionId: sid }, } = await this.post('/session', payload);
+        const { value: { capabilities, sessionId: sid } } = await this.post('/session', payload);
         const newUrl = `${this.server}/session/${sid}`;
         return new Session(newUrl, capabilities);
     }
@@ -44,10 +44,19 @@ class Client extends Base {
                 bundleId,
                 arguments: args,
                 environment,
-                shouldWaitForQuiescence: true,
-            },
+                shouldWaitForQuiescence: true
+            }
         };
         return await this.createNewSession(data);
+    }
+    /**
+     * 启动app，不返回 session 的那种, 需要最新版 wda 支持
+     * @param bundleId bundleId
+     */
+    async startAppWithoutAttach(bundleId) {
+        return this.post('/wda/apps/launchUnattached', {
+            bundleId
+        });
     }
     /**
      * 获取状态

@@ -23,6 +23,11 @@ declare class Client extends Base {
      */
     startApp(bundleId: string, args?: never[], environment?: {}): Promise<Session>;
     /**
+     * 启动app，不返回 session 的那种, 需要最新版 wda 支持
+     * @param bundleId bundleId
+     */
+    startAppWithoutAttach(bundleId: string): Promise<any>;
+    /**
      * 获取状态
      */
     status(): Promise<any>;
