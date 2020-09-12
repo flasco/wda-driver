@@ -87,7 +87,7 @@ class Session extends Base {
       fromY,
       toX,
       toY,
-      duration
+      duration,
     });
   }
 
@@ -130,6 +130,8 @@ class Session extends Base {
     return this.swipe(width / 2, height / 2 - 150, width / 2, height / 2 + 150);
   }
 
+  orientation(): Promise<TOrientation>;
+  orientation(orientation: TOrientation): Promise<void>;
   /**
    * 不传参数是获取当前屏幕状态（横竖屏），传参则是改变到指定状态
    * @param orientation 屏幕状态
