@@ -15,11 +15,13 @@ class Client extends Base {
   async getSession() {
     const status = await this.status();
     const sid: string = status.sessionId;
-    if (sid == null) throw 'no session created ever';
+    if (sid == null) {
+      return await this.createNewSession({ capabilities: {} });
+    }
 
     const newUrl = `${this.server}/session/${sid}`;
     const {
-      value: { capabilities }
+      value: { capabilities },
     } = await this.get(newUrl, true);
     const ret = new Session(newUrl, capabilities);
     return ret;
@@ -31,7 +33,7 @@ class Client extends Base {
    */
   async createNewSession(payload: Object) {
     const {
-      value: { capabilities, sessionId: sid }
+      value: { capabilities, sessionId: sid },
     } = await this.post('/session', payload);
 
     const newUrl = `${this.server}/session/${sid}`;
@@ -50,12 +52,14 @@ class Client extends Base {
     if (typeof environment !== 'object') throw 'environment must be a object';
 
     const data = {
-      desiredCapabilities: {
-        bundleId,
-        arguments: args,
-        environment,
-        shouldWaitForQuiescence: true
-      }
+      capabilities: {
+        alwaysMatch: {
+          bundleId,
+          arguments: args,
+          environment,
+          shouldWaitForQuiescence: true,
+        },
+      },
     };
     return await this.createNewSession(data);
   }
@@ -66,7 +70,7 @@ class Client extends Base {
    */
   async startAppWithoutAttach(bundleId: string) {
     return this.post('/wda/apps/launchUnattached', {
-      bundleId
+      bundleId,
     });
   }
 
