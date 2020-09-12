@@ -1,6 +1,6 @@
 {
   "name": "@flasco/wda-driver",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "main": "./dist/index.js",
   "license": "MIT",
   "publishConfig": {

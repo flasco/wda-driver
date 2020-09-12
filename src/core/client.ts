@@ -9,22 +9,9 @@ interface IAppInfo {
 }
 
 class Client extends Base {
-  /**
-   * 获取当前session
-   */
+  /** 获取当前的session，调一次会变一次，注意别乱用 */
   async getSession() {
-    const status = await this.status();
-    const sid: string = status.sessionId;
-    if (sid == null) {
-      return await this.createNewSession({ capabilities: {} });
-    }
-
-    const newUrl = `${this.server}/session/${sid}`;
-    const {
-      value: { capabilities },
-    } = await this.get(newUrl, true);
-    const ret = new Session(newUrl, capabilities);
-    return ret;
+    return this.createNewSession({ capabilities: {} });
   }
 
   /**
