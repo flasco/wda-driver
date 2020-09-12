@@ -8,9 +8,10 @@
   },
   "scripts": {
     "test": "node_modules/.bin/jest --no-cache --forceExit --runInBand --detectOpenHandles",
-    "ts:build": "tsc",
-    "ts:watch": "tsc --watch",
-    "prepublishOnly": "tsc"
+    "dev": "tsc",
+    "build": "rm -rf dist && tsc --project tsconfig.prod.json",
+    "watch": "tsc --watch",
+    "prepublishOnly": "yarn build"
   },
   "files": ["dist"],
   "dependencies": {

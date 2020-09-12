@@ -6,8 +6,7 @@
     "target": "ES2017",                    // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
     "module": "commonjs",                  // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
     "lib": ["es2017"],                             // 指定要包含在编译中的库文件
-
-    "outDir": "./dist",                  // 指定输出目录
+    "outDir": "./tmp",                     // 指定输出目录
     "rootDir": "./src",                       // 用来控制输出目录结构 --outDir.
     "resolveJsonModule": true,
     "noEmitHelpers": true,
