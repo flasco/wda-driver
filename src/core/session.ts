@@ -134,7 +134,7 @@ class Session extends Base {
    * 不传参数是获取当前屏幕状态（横竖屏），传参则是改变到指定状态
    * @param orientation 屏幕状态
    */
-  async orientation(orientation: TOrientation) {
+  async orientation(orientation?: TOrientation) {
     const { value } = !orientation
       ? await this.get('/orientation')
       : await this.post('/orientation', { orientation });
